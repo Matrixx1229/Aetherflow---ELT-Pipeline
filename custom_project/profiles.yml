@@ -1,0 +1,12 @@
+custom_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: destination_postgres  # Connects internally within Docker
+      user: postgres
+      password: secret
+      port: 5432                  # Internal port is 5432
+      dbname: destination_db
+      schema: analytics
+      threads: 1

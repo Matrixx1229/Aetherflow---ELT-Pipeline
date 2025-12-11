@@ -1,0 +1,92 @@
+x-airflow-common: &airflow-common
+  build:
+    context: ./airflow
+    dockerfile: Dockerfile
+  user: root
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__FERNET_KEY: "8dObuUaO12-ODBxgwo6NLIqvsozZyXXylzIqV-ivOT4="
+    # DBT Environment Variables (Crucial for Airflow to run dbt)
+    DBT_PROJECT_DIR: /opt/dbt
+    DBT_PROFILES_DIR: /opt/dbt
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./elt:/opt/airflow/elt
+    - ./custom_project:/opt/dbt       # Mounts your dbt project to /opt/dbt
+    - /var/run/docker.sock:/var/run/docker.sock
+  depends_on:
+    - postgres-airflow
+
+services:
+  source_postgres:
+    image: postgres:17
+    ports:
+      - "5433:5432"
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: source_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./source_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  destination_postgres:
+    image: postgres:17
+    ports:
+      - "5434:5432"
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: destination_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+
+  postgres-airflow:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    networks:
+      - elt_network
+
+  airflow-init:
+    <<: *airflow-common
+    command: version
+    environment:
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
+      _AIRFLOW_DB_MIGRATE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: airflow
+      _AIRFLOW_WWW_USER_PASSWORD: admin
+    networks:
+      - elt_network
+
+  webserver:
+    <<: *airflow-common
+    command: webserver
+    restart: always
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - elt_network
+
+  scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: always
+    networks:
+      - elt_network
+
+networks:
+  elt_network:
+    driver: bridge

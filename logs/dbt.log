@@ -1,0 +1,135 @@
+[0m14:27:53.776446 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209569A3A60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020958A797C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020957D4A9D0>]}
+
+
+============================== 14:27:53.780457 | a5466318-dfe2-46c6-a9fe-f57ad4a1cf6e ==============================
+[0m14:27:53.780457 [info ] [MainThread]: Running with dbt=1.10.15
+[0m14:27:53.780457 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'target_path': 'None', 'log_format': 'default', 'version_check': 'True', 'empty': 'None', 'printer_width': '80', 'partial_parse': 'True', 'log_path': 'logs', 'no_print': 'None', 'warn_error': 'None', 'write_json': 'True', 'quiet': 'False', 'invocation_command': 'dbt init', 'introspect': 'True', 'static_parser': 'True', 'profiles_dir': 'C:\\Users\\HP\\.dbt', 'use_experimental_parser': 'False', 'use_colors': 'True', 'indirect_selection': 'eager'}
+[0m14:28:55.726163 [debug] [MainThread]: Starter project path: C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\include\starter_project
+[0m14:28:55.738819 [info ] [MainThread]: 
+Your new dbt project "custom_postgres" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:28:55.739819 [info ] [MainThread]: Setting up your profile.
+[0m14:30:19.916119 [error] [MainThread]: Encountered an error:
+
+[0m14:30:19.918118 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m14:30:19.919118 [debug] [MainThread]: Command `dbt init` failed at 14:30:19.919118 after 146.22 seconds
+[0m14:30:19.919118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209569A3A60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020958D93C40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020958DB2A90>]}
+[0m14:30:19.920117 [debug] [MainThread]: Flushing usage events
+[0m14:30:20.912079 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:30:30.511716 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E337E23A60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E339EF9B80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3391C99D0>]}
+
+
+============================== 14:30:30.515230 | eaf317e5-82d4-4f0e-a5fa-6d055d047334 ==============================
+[0m14:30:30.515230 [info ] [MainThread]: Running with dbt=1.10.15
+[0m14:30:30.516228 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'no_print': 'None', 'version_check': 'True', 'empty': 'None', 'printer_width': '80', 'quiet': 'False', 'introspect': 'True', 'partial_parse': 'True', 'warn_error': 'None', 'write_json': 'True', 'target_path': 'None', 'invocation_command': 'dbt init', 'log_path': 'logs', 'static_parser': 'True', 'profiles_dir': 'C:\\Users\\HP\\.dbt', 'use_experimental_parser': 'False', 'use_colors': 'True', 'indirect_selection': 'eager'}
+[0m14:31:07.715565 [debug] [MainThread]: Starter project path: C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\include\starter_project
+[0m14:31:07.737283 [info ] [MainThread]: 
+Your new dbt project "custom_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:31:07.737283 [info ] [MainThread]: Setting up your profile.
+[0m14:32:02.531628 [error] [MainThread]: Encountered an error:
+
+[0m14:32:02.533771 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m14:32:02.534767 [debug] [MainThread]: Command `dbt init` failed at 14:32:02.534767 after 92.08 seconds
+[0m14:32:02.534767 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E337E23A60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E33A20BC40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E33A2292B0>]}
+[0m14:32:02.535789 [debug] [MainThread]: Flushing usage events
+[0m14:32:03.527289 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:32:21.656655 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1C490AF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1E6C6250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1D8A0220>]}
+
+
+============================== 14:32:21.659257 | 93443f18-076c-4c18-afa4-11b68bd97809 ==============================
+[0m14:32:21.659257 [info ] [MainThread]: Running with dbt=1.10.15
+[0m14:32:21.660255 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'no_print': 'None', 'target_path': 'None', 'version_check': 'True', 'empty': 'None', 'printer_width': '80', 'quiet': 'False', 'introspect': 'True', 'partial_parse': 'True', 'warn_error': 'None', 'write_json': 'True', 'invocation_command': 'dbt init', 'log_format': 'default', 'log_path': 'logs', 'static_parser': 'True', 'profiles_dir': 'C:\\Users\\HP\\.dbt', 'use_experimental_parser': 'False', 'use_colors': 'True', 'indirect_selection': 'eager'}
+[0m14:32:32.533472 [debug] [MainThread]: Starter project path: C:\Users\HP\OneDrive\Desktop\AetherFlow\elt\dbt-env\lib\site-packages\dbt\include\starter_project
+[0m14:32:32.556131 [info ] [MainThread]: 
+Your new dbt project "custom_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:32:32.557515 [info ] [MainThread]: Setting up your profile.
+[0m14:34:51.205895 [info ] [MainThread]: Profile custom_project written to C:\Users\HP\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m14:34:51.207896 [debug] [MainThread]: Command `dbt init` succeeded at 14:34:51.206896 after 149.62 seconds
+[0m14:34:51.207896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1C490AF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1E6C6190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015F1D8A0220>]}
+[0m14:34:51.208450 [debug] [MainThread]: Flushing usage events
+[0m14:34:52.202913 [debug] [MainThread]: An error was encountered while trying to flush usage events
