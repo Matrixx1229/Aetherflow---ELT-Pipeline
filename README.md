@@ -18,13 +18,13 @@ AetherFlow is a robust ELT (Extract, Load, Transform) pipeline designed to simul
 
 ### 🏗️ Architecture
 
-
+```
 graph LR
         A[Source Postgres] -->|Extract & Load (Python)| B[Destination Postgres]
         B -->|Transform (dbt)| C[Analytical Models]
         D[Apache Airflow] -->|Orchestrates| A
         D -->|Orchestrates| C
-
+```
 
 The workflow follows these steps:
 
@@ -111,4 +111,5 @@ Visualization: Connect a BI tool like Metabase or Streamlit to visualize the fil
 Data Quality: Add more complex dbt test cases (e.g., accepted values for ratings).
 
 CI/CD: Automate the testing of dbt models using GitHub Actions.
+
 
